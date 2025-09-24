@@ -3,7 +3,6 @@
 //-------------------------------------------------------------------------
 // Lista que vai armazenar os nomes
 let amigos = [];
-let contador = 0;
 //-------------------------------------------------------------------------
 // Função para adicionar amigo
 function adicionarAmigo() {
@@ -12,26 +11,21 @@ function adicionarAmigo() {
 
     if (nome !== "") {
 
-        if(amigos.length == 0){
-           amigos.push(nome); 
-        }else{
-            //Verifica se o nome já está na lista]
-            while(contador <= amigos.length - 1){
-                if(nome === amigos[contador]){
-                    let valor = prompt("Nome já esta na lista desejá adicionalo novamente? (s = sim / n = não)");
-
-                    if (valor == 'S' || valor == 's'){
+            if (amigos.length === 0) {
+                amigos.push(nome);
+            } else {
+                // Verifica se o nome já está na lista
+                if (amigos.includes(nome)) {
+                    let escolha = prompt("Nome já adicionado na lista, deseja adicioná-lo novamente? s=sim/n=não");
+                    if (escolha.toLowerCase() === 's') {
                         amigos.push(nome);
-                    }else{
-                        alert("Nome não adicionado")
+                    } else {
+                        alert("Nome não adicionado");
                     }
-                }else{
+                } else {
                     amigos.push(nome);
                 }
-
             }
-            
-        }
 
 
 
